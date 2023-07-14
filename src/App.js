@@ -1,23 +1,17 @@
+import { useEffect, useState } from 'react'
 import './App.css'
-import logo from './logo.svg'
+import Users from './components/Users'
 
 function App() {
+    const [user, setUser] = useState(null)
+    useEffect(() => {
+        fetch(`https://jsonplaceholder.typicode.com/users`)
+            .then(value => value.json())
+            .then(value => setUser(value))
+    }, [])
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+            <Users user={user} />
         </div>
     )
 }
@@ -25,3 +19,13 @@ function App() {
 export default App
 
 //todo
+
+// property drill
+
+// Структура:
+// Головна компонента App. App робить запит на https://jsonplaceholder.typicode.com/users
+// В середині Апп лежить компонента Users яка відображає всіх отриманих в апп юзерів з плейсхолдеру
+// Кожен юзер - це компонента User, в якій є інші комоненти, а саме
+// UserDetails - яка відображає інформацію id,name,username,email,phone,website,
+// UserAddress - яка відображає інформацію street suite city,
+// Company - яка відображає name,catchPhrase,bs
