@@ -1,0 +1,14 @@
+.wrapper {
+    width: 40vw;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper > input {
+    margin: 1.2em;
+}
