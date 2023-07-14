@@ -1,27 +1,20 @@
 import './App.css'
-import logo from './logo.svg'
+import Space from './components/Space'
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+            <Space />
         </div>
     )
 }
 
 export default App
 
-//init homework 2
+//todo
+
+// =====
+// є API от SpaceXcom
+// https://api.spacexdata./v3/launches/
+// потрібно вивести всі запуски кораблів окрім 2020 року
+// репрезентувати тільки окремі поля (зазначені в скрнішоті в папці)
