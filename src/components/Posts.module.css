@@ -1,0 +1,20 @@
+.wrapper {
+    border: 1px solid black;
+    border-radius: 9px;
+    padding: 1.2em;
+    margin: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper > button {
+    border: none;
+    outline: none;
+    background-color: rgba(34, 32, 32, 0.781);
+    border-radius: 16px;
+    width: 14vw;
+    height: 3vh;
+    color: #f8f8f8;
+}
