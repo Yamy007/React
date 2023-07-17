@@ -1,16 +1,21 @@
 import { useForm } from 'react-hook-form'
-const CarForm = ({ onSave }) => {
-    const form = useForm()
+const CarForm = ({ onSave, init }) => {
+    const { brand, price, year } = init
+    const form = useForm({
+        defaultValues: {
+            brand: brand,
+            price: price,
+            year: year,
+        },
+    })
     const { register, handleSubmit } = form
 
     const onSubmit = data => {
         console.log(data)
         fetch(`http://owu.linkpc.net/carsAPI/v1/cars`, {
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data),
             method: 'POST',
-            header: { 'Content-Type': 'application/json' },
-            body: {
-                data: JSON.stringify(data),
-            },
         })
             .then(value => value.json())
             .then(() => onSave(prev => !prev))
