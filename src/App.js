@@ -1,23 +1,9 @@
 import './App.css'
-import logo from './logo.svg'
-
-function App() {
+import CarsContainer from './components/CarsContainer/CarsContainer'
+const App = () => {
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+            <CarsContainer />
         </div>
     )
 }
@@ -25,3 +11,5 @@ function App() {
 export default App
 
 //todo
+// http://owu.linkpc.net/carsAPI/v1/doc
+// Реалізувати створення, видалення та оновлення машин
