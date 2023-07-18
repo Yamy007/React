@@ -15,28 +15,24 @@ export const CarForm = ({ setSave, innit, setInnit }) => {
         formState: { errors },
     } = form
     useEffect(() => {
-        changeValue(brand, price, year)
-    }, [brand, price, year])
-    const changeValue = (brand, price, year) => {
         setValue('brand', brand)
         setValue('price', price)
         setValue('year', year)
-    }
+    }, [brand, price, year])
+
     const onSubmit = data => {
         if (id) {
             axios.put(`http://owu.linkpc.net/carsAPI/v1/cars/${id}`, data).then(response => {
                 console.log(response.data)
-                setSave(prev => !prev)
-                setInnit({ id: '', brand: '', year: '' })
             })
         } else {
             axios.post(`http://owu.linkpc.net/carsAPI/v1/cars`, data).then(res => {
                 console.log(res)
                 console.log(res.data)
-                setSave(prev => !prev)
-                setInnit({ id: '', brand: '', year: '' })
             })
         }
+        setSave(prev => !prev)
+        setInnit({ id: '', brand: '', year: '' })
     }
 
     return (
