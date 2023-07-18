@@ -6,11 +6,8 @@ import Cars from '../Cars/Cars'
 const CarContainer = () => {
     const [car, setCar] = useState()
     const [save, setSave] = useState(null)
-    const [innit, setInnit] = useState({
-        brand: '',
-        price: '',
-        year: '',
-    })
+    const [innit, setInnit] = useState({ id: '', brand: '', price: '', year: '' })
+
     useEffect(() => {
         axios.get(`http://owu.linkpc.net/carsAPI/v1/cars`).then(res => {
             setCar(res.data)
@@ -26,11 +23,11 @@ const CarContainer = () => {
     }
 
     const carUpdate = (id, brand, price, year) => {
-        setInnit({ brand: 'brand', price: 'price', year: 'year' })
+        setInnit({ id: id, brand: brand, price: price, year: year })
     }
     return (
         <div>
-            <CarForm setSave={setSave} setInnit={setInnit} innit={innit} />
+            <CarForm setSave={setSave} innit={innit} setInnit={setInnit} />
             {car?.map(value => (
                 <div key={value.id}>
                     <Cars car={value} />

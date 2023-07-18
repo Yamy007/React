@@ -1,31 +1,44 @@
 import axios from 'axios'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
 export const CarForm = ({ setSave, innit, setInnit }) => {
-    const { brand, price, year } = innit
-    console.log(innit)
-    const form = useForm({
-        defaultValues: {
-            brand: brand,
-            price: price,
-            year: year,
-        },
-    })
+    const { id, brand, price, year } = innit
+
+    const form = useForm()
 
     const {
         register,
         handleSubmit,
+        setValue,
         formState: { errors },
     } = form
-    const onSubmit = (data, id) => {
-        axios.post(`http://owu.linkpc.net/carsAPI/v1/cars`, data).then(res => {
-            console.log(res)
-            console.log(res.data)
-            setSave(prev => !prev)
-        })
+    useEffect(() => {
+        changeValue(brand, price, year)
+    }, [brand, price, year])
+    const changeValue = (brand, price, year) => {
+        setValue('brand', brand)
+        setValue('price', price)
+        setValue('year', year)
     }
+    const onSubmit = data => {
+        if (id) {
+            axios.put(`http://owu.linkpc.net/carsAPI/v1/cars/${id}`, data).then(response => {
+                console.log(response.data)
+                setSave(prev => !prev)
+                setInnit({ id: '', brand: '', year: '' })
+            })
+        } else {
+            axios.post(`http://owu.linkpc.net/carsAPI/v1/cars`, data).then(res => {
+                console.log(res)
+                console.log(res.data)
+                setSave(prev => !prev)
+                setInnit({ id: '', brand: '', year: '' })
+            })
+        }
+    }
+
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
