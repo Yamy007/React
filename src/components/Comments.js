@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const Comments = () => {
     const [comments, setComments] = useState([])
-    const [post, setPost] = useState([])
+    const [post, setPost] = useState(null)
     useEffect(()=>{
         fetch(`https://jsonplaceholder.typicode.com/comments`)
             .then(value => value.json())
@@ -32,7 +32,7 @@ const Comments = () => {
                             <h2>Name: {value.name}</h2>
                             <h2>Email: {value.email}</h2>
                             <h2>Body: {value.body}</h2>
-                            <button onClick={()=>onClick(value.postId)}>Show current post</button>
+                            <button onClick={()=>post? setPost(null) : onClick(value.postId)}>Show current post</button>
                         </div>
                     ))}
                  </div>

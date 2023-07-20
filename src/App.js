@@ -2,12 +2,13 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Albums from "./components/Albums";
 import Comments from "./components/Comments";
+import Navbar from './components/Navbar';
 import Todo from "./components/Todo";
 
 function App() {
   return (
     <>
-
+    <Navbar />
     <Routes>
         <Route path="/" element={<Todo />}></Route>
         <Route path="/album" element={<Albums />}></Route>
