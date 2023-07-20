@@ -1,13 +1,72 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+        'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.wrapper {
+    width: 25vw;
+    height: 20vh;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 2em;
+    margin: 1.2em;
+}
+
+.grid {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.container {
+    overflow-y: scroll;
+    height: 100vh;
+    width: 100%;
+}
+
+.box {
+    width: 40vw;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 1.2em;
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box > button {
+    outline: none;
+    border: none;
+    width: 35vw;
+    font-size: 1.2rem;
+    height: 4vh;
+    border-radius: 12px;
+}
+
+.com {
+    margin: 3.2em;
+    width: 35vw;
+    height: 40vh;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 1.2em;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-direction: row;
+    overflow: hidden;
 }
